@@ -4,8 +4,8 @@
 
 #Files 
 *.vs
-.gitattributes
-.gitattributes
+*.gitattributes
+*.gitattributes
 
 # Object files
 *.o
