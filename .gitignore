@@ -1,6 +1,12 @@
 # Prerequisites
 *.d
 
+#Файли які не потрібні 
+.gitignore
+.gitattributes
+/.vs
+KhPI DB CS-321b/Practical Work
+!*.cpp
 
 
 # Object files
