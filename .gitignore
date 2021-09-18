@@ -2,13 +2,13 @@
 *.d
 
 #Файли які не потрібні команда git rm -r --cached "storage/framework/cache/"
-#.gitignore
-#.gitattributes
-#/.vs
-#/Practical Work/*
-#!*.cpp
-#*.txt
-#CppProperties.json 
+.gitignore
+.gitattributes
+/.vs
+/Practical Work/*
+!*.cpp
+*.txt
+CppProperties.json 
 
 
 # Object files
