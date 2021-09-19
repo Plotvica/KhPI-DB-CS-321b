@@ -2,7 +2,7 @@
 *.d
 
 #Файли які не потрібні команда git rm -r --cached "storage/framework/cache/"
-#.gitignore
+.gitignore
 .gitattributes
 /.vs
 *.txt 
