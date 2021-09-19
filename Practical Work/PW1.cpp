@@ -1,11 +1,13 @@
-#include <iostreams>
-using namecpase sdt;
+#include <iostream>
 
 
-void main ()
+
+int main ()
 {
 
-cont << "Hellow world!"; // test
- 
+
+std::cout << "Hellow world!\n"; // test
+
+
 
 }
