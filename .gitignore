@@ -3,7 +3,13 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+#Файли які не потрібні команда git rm -r --cached "storage/framework/cache/"
+#.gitignore
+#.gitattributes
+#/.vs *.txt
+#
 # User-specific files
+
 *.rsuser
 *.suo
 *.user
