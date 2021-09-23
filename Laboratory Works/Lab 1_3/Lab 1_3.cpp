@@ -1,10 +1,12 @@
 ﻿#include <iostream>
-
+#include <math.h>
 int main()
 {
-    int x;
+    int x, y;
         x = 2;
-           int y = pow( x, 8 );
+        y= x * x * pow(x, 6);
+            // y = pow (x, 8)
+            
 }
 
 

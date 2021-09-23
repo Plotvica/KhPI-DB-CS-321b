@@ -2,6 +2,8 @@
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    int a = 10, c;
+        c = a + rand() %10 + 1;
+
 }
 
