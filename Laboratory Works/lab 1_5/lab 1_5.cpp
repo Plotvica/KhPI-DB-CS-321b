@@ -1,9 +1,9 @@
 ﻿#include <iostream>
-
+#include <ctime>
 int main()
 {
-    int a = 10, c;
-        c = a + rand() %10 + 1;
-
+srand (time(NULL));
+    int a = 100, c;
+        c = a + rand()%10;
 }
 
