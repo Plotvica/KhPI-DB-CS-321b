@@ -1,10 +1,10 @@
 ﻿#include <iostream>
-#include <Windows.h>
+//#include <Windows.h>
 
 int main()
 {
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
+	//SetConsoleCP(1251);
+	//SetConsoleOutputCP(1251);
 
 	int іnt, shоrt, lоng, chаr, floаt, doublе;
 	 іnt = sizeof(int);
