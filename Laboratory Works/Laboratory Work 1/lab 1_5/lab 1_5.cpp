@@ -4,6 +4,6 @@ int main()
 {
 srand (time(NULL));
     int a = 100, c;
-        c = a + rand()%10;
+        c = a + rand()%10+1;
 }
 
