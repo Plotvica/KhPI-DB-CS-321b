@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 //#include <math.h>
+
 int main()
 {
    float s, p, a, b, c;
