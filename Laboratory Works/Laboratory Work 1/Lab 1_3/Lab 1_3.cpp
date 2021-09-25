@@ -2,9 +2,9 @@
 #include <math.h>
 int main()
 {
-    int x, y;
+    int x, answer; 
         x = 2;
-        y= x * x * pow(x, 6);
+        answer = pow(x, 2) * pow(x, 2) * pow(x, 2) * pow(x, 2); 
             // y = pow (x, 8)          
 }
 

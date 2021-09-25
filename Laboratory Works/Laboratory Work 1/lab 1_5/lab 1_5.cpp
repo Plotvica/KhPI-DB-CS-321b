@@ -3,7 +3,7 @@
 int main()
 {
 srand (time(NULL));
-    int a = 100, c;
-        c = a + rand()%10+1;
+    int user = 100, bot;
+        bot = user + rand() % 10 + 1;
 }
 
