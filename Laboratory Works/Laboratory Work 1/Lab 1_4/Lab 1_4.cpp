@@ -8,8 +8,11 @@ int main()
         a = b;
         b = c;       
     // 4.2 
-        b = a; 
-        a = 2;
+        //b = a; 
+        //a = 2;
+        a = a + b;
+        b = a - b;
+        a = a - b;
 
 }
 
