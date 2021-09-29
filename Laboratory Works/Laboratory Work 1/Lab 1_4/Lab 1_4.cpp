@@ -2,17 +2,17 @@
 
 int main()
 {
-    int a = 2, b = 3, c;
-    // 4.1
-        c = a;
-        a = b;
-        b = c;       
-    // 4.2 
-        //b = a; 
-        //a = 2;
-        a = a + b;
-        b = a - b;
-        a = a - b;
+	int ft = 2, sec = 3, extr;
+	// 4.1
+	extr = ft;
+	ft = sec;
+	sec = extr;
+	// 4.2 
+		//sec = ft; 
+		//ft = 2;
+	ft = ft + sec;
+	sec = ft - sec;
+	ft = ft - sec;
 
 }
 

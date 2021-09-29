@@ -12,7 +12,7 @@ int main()
      long long  hundred = 100 * formula + (100 / 4) * leap_year - (100 / 4) * formula;
 
     /* 3.154e+7 per year
-    long long thousand = 1000 * (3.154e+7);
-    long long hundred = 100 * (3.154e+7); */
+    double thousand = 1000 * (3.154e+7);
+    double hundred = 100 * (3.154e+7); */
 }
 
