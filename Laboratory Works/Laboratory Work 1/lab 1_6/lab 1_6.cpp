@@ -10,6 +10,8 @@ int main()
 
      long long thousand = 1000 * formula + (1000/4)*leap_year - (1000/4) * formula;
      long long  hundred = 100 * formula + (100 / 4) * leap_year - (100 / 4) * formula;
+     int thousand1 = 1000 * formula + (1000 / 4) * leap_year - (1000 / 4) * formula;
+     int  hundred1 = 100 * formula + (100 / 4) * leap_year - (100 / 4) * formula;
 
     /* 3.154e+7 per year
     double thousand = 1000 * (3.154e+7);
