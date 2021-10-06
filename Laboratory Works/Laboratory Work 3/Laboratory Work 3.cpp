@@ -22,7 +22,7 @@ int main(void) {
 	ax = a - b;
 	t1 = b/( ax*(a+x) ) - a/(ax*ax) * log((a+x)/(b+x));
 
-	if (x == -b) {
+	if ( x == -a || x == -b || ax == 0 ) {
 
 		printf("Помилка\n", t1);
 
@@ -33,10 +33,10 @@ int main(void) {
 
 	}
 
-	ax = a * x;
+	ax = a * x ;
 	t2 = (1 / a) * (log(tan(ax / 2)) - 1 / (sin(ax)));
 
-	if (x > 0) {
+	if ( (ax / 2) >= -57.29 || (ax / 2) <= 57.29 || tan(ax / 2) == 0 || sin(ax) == 0 || a == 0 || ax == 0) {
 
 		printf("Помилка\n", t2);
 
