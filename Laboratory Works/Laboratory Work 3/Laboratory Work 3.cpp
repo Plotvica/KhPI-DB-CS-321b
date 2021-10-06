@@ -7,17 +7,19 @@ using namespace std;
 int main(void) {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
+
+
 	/* параметры, которые вводятся */
 	double x;
+
 	/* параметры, которые задаются в программе */
 	double a = 12.5, b = 1.3; // x!=-b a!=b a!=0
 	double t1, t2;   /* результаты */
 	double ax;       /* рабочая переменная */
 
-	printf("Введите x>");
+	printf("Введіть x>");
 	scanf("%lf", &x);
 
-	x != -b;
 
 	ax = a - b;
 	t1 = b/( ax*(a+x) ) - a/(ax*ax) * log((a+x)/(b+x));
