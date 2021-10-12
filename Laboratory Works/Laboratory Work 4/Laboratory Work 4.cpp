@@ -64,8 +64,7 @@ putchar('\n');
   printf("Hаправление передачи = %i\n",d);
   printf("1-й операнд = %i\n",r);
   printf("Pегистр адреса 2-го операнда = %i\n",a);
-return 0;
 
-    
+return 0;  
 }
 
