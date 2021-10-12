@@ -18,7 +18,7 @@ int main()
 	char name1[11] = "Фланць", name2[11] = "Перехідник", name3[11] = "Станина"; //strcpy(name1, "Тодайдзи");
 	char type1 = 'О', type2 = 'П', type3 = 'З';
 	int cnt1 = 3, cnt2 = 8, cnt3 = 1;
-	float wei1 = 450, wei2 = 74, wei3 = 117050;
+	int wei1 = 450, wei2 = 74, wei3 = 117050;
 
 	 
 	//printf("1. Введіть: назву, тип, кількість, вагу (г)  >"); // фланець З 3 450
@@ -39,9 +39,9 @@ int main()
 	printf("|            |       |            |  деталі (г) |\n");
 	printf("|------------|-------|------------|-------------|\n");
 	
-	printf("| %10s | %5c | %10d | %-11.1f |\n", name1, type1, cnt1, wei1);
-	printf("| %10s | %5c | %10d | %-11.1f |\n", name2, type2, cnt2, wei2);
-	printf("| %10s | %5c | %10d | %-11.1f |\n", name3, type3, cnt3, wei3);
+	printf("| %10s | %5c | %10d | %11d |\n", name1, type1, cnt1, wei1);
+	printf("| %10s | %5c | %10d | %11d |\n", name2, type2, cnt2, wei2);
+	printf("| %10s | %5c | %10d | %11d |\n", name3, type3, cnt3, wei3);
 
 	printf("|-----------------------------------------------|\n");
 	printf("| Примітка: О - оригінальна; П - покупна;       |\n");
