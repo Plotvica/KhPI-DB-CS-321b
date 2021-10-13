@@ -29,14 +29,11 @@ printf("Введите регистр адреса 2-го операнда (0 - 
 */
 
   unsigned int result;
-//  result =  (1 & 0x7) << 13;
-    result  =  1        << 13; 
-    result |=  1        << 14;
-    result |=  1        << 15;
+    result =  (7 & 0x7) << 13;
     result |=  1        << 9;
     result |=  d        << 8; 
     result |= (r & 0xF) << 4; // 0xF 4 bits
-    result |= (a & 0xF) << 0;
+    result |= (a & 0xF);
     
 printf ("Формат команды загрузки/сохранения в вычислительной системе имеет вид:%04x\n\n", result);
 
@@ -50,15 +47,13 @@ printf ("Формат команды загрузки/сохранения в в
 
 
 printf ("Введите формат загрузки/сохранения в вычислительной системе от 0 до 0xFF: ");
-    scanf ("%x", &result);
+    scanf ("%i", &result);
 
-    result  =  1        >> 13; 
-    result |=  1        >> 14;
-    result |=  1        >> 15;
+    result  = (7 >> 13 ) & 0x7;
     result |=  1        >> 9;
     result |=  d        >> 8; 
     result |= (r >> 4)  & 0xF; 
-    result |= (a >> 0)  & 0xF;  
+    result |=  a        & 0xF;  
 
 putchar('\n');
   printf("Hаправление передачи = %i\n",d);
