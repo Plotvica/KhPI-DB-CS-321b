@@ -21,9 +21,9 @@ int main()
 
     double  D = sqrt(b * b - 4 * a * c);
         if ((b * b - 4 * a * c) >= 0) {
-            arg = -1*b - D / (2 * a);
+            arg = (-b - D) / (2 * a);
                 printf ("Первый корень равен %lg\n", arg);
-            arg = -1*b + D / (2 * a);
+            arg = (-b + D) / (2 * a);
                 printf ("Второй корень равен %lg", arg);
         }
         else{
