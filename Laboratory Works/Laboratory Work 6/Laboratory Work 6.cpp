@@ -9,7 +9,6 @@ int main(){
     SetConsoleOutputCP(1251);
     
 	double n;
-	double dbln;
     double sum = 0;
 	double term;
 	const double lim = 0.000001;
@@ -17,7 +16,6 @@ int main(){
 	
 	for ( n=0; ; n++, k1 = -k1) 
 	{
-		dbln = n;
 		term = k1 * (n*n + 1) / (n*n*n + 3);
 		if (fabs(term) >= lim){ 
 			sum += term;
