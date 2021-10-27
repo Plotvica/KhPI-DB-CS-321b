@@ -17,7 +17,7 @@ int main()
    // int random_num2 = rand() % 10 + 1;
    //int question = random_num1*random_num2;
 
-    int in_put_user_num, grade = 0, num_of_question;
+    int input_user_num, grade = 0, num_of_question;
 
     for (num_of_question = 1; num_of_question <= 10; num_of_question++) {
 
@@ -26,9 +26,9 @@ int main()
         int question = random_num1 * random_num2;
 
     	printf("%i): %i * %i\n", num_of_question, random_num1, random_num2);
-        scanf ("%i", &in_put_user_num);
+        scanf ("%i", &input_user_num);
 
-    	if(question!=in_put_user_num){
+    	if(question!=input_user_num){
     		printf("Ошибка! Правильний ответ: %i\n", question);
     	} else 
     		grade++;

@@ -13,7 +13,7 @@ int main()
     srand(time(NULL));
     int bot_num = rand() % 100 + 1;
 
-    int win, lost, user_num, attempts=0;
+    int user_num, attempts=0;
 
 	printf("Угадай число!\n");
 
