@@ -1,5 +1,6 @@
 ﻿#define  _CRT_SECURE_NO_WARNINGS
 #include <iostream>
+#include <math.h>
 #include "windows.h";
 using namespace std;
 
