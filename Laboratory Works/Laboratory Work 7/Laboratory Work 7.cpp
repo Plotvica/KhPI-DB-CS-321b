@@ -30,13 +30,13 @@ int main() {
                 y = -abs(x - 1) + 1;
             }
             
-            printf("| %5.2lg | %10.7lg |", x + n * 5, y);
+            printf("| %5.2lf | %10.7lf |", x + n * 5, y);
 
             h = (y + 1) * 8;  
 
-            if (y - 1 - h * 8 > 0.25) { 
+          /*  if (y - 1 - h * 8 > 0.25) { 
                 h++;
-            };
+            };*/
 
             for (; h > 0; h--){
                printf(" ");
