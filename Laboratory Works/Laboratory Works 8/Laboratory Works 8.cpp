@@ -19,17 +19,18 @@ int main()
     int arr[SIZE];
 
     for (i = 0; i < SIZE; i++) { 
-        arr[i] = rand ()%100 - 50;           
+        arr[i] = rand ()%100 - 50;  // index e [-50;50]       
     }
 
     for (i=0;  i < SIZE; i++) {
-        if (i < SIZE-1){
+        if (i < SIZE-1){ // SIZE-1 limit index
             if (arr[i] > 0 && arr[i+1] < 0  || arr[i] < 0 && arr[i+1] > 0) { 
                 pair++;
             }
         }  
         cout << arr[i] << setw(4);  
     }
+    // Console output
     cout << endl << "How many pairs do we have?" << pair << endl;
 
  return 0;

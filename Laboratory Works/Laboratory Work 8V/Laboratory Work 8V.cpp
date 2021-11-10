@@ -1,6 +1,5 @@
 ﻿#include<iostream>
 #include<vector>
-#include <algorithm> 
 #include <iomanip>
 using namespace std;
 
@@ -17,9 +16,10 @@ int main()
     cin >> input_user_num; 
 
    
-
+    // positive numbers 
     if (input_user_num > 0) {
         
+        // array size by user input
         hash = input_user_num;
 
         do { 
@@ -27,7 +27,7 @@ int main()
             arr_size++;
         } while (hash > 0);
 
-
+        // finding digits
         int *arr = new int[arr_size];
         int i = 0;
         for (i = 0; i < arr_size; i++){
@@ -35,6 +35,7 @@ int main()
              input_user_num /=10;
              summa += arr[i]; 
         }
+        // Console output 
         cout << "Reversed number:";
                                     for (i = 0; i < arr_size; i++)
                                                                   cout << arr[i];
@@ -42,7 +43,7 @@ int main()
         cout << "Total sum:" << summa << endl;
         cout << "Total digits" << i << endl;
     } 
- 
+    // negative numbers
     else if (input_user_num <= 0) {
        cout << "Error" << endl;
        return 0;
