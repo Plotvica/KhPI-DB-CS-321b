@@ -11,7 +11,7 @@ using namespace std;
 
 int main()
 {
-    const int SIZE = 10; // array`s size
+    const int SIZE = 100; // array`s size
     
     srand(time(NULL));
 

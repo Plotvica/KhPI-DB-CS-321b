@@ -35,10 +35,12 @@ int main()
              input_user_num /=10;
              summa += arr[i]; 
         }
+        int new_num = 0;
         // Console output 
         cout << "Reversed number:";
-                                    for (i = 0; i < arr_size; i++)
-                                                                  cout << arr[i];
+        for (i = 0; i < arr_size; i++)
+                                      new_num += (arr[i] * (pow(10,  arr_size - i - 1)));
+                                                                                         cout << new_num;
         cout << endl;
         cout << "Total sum:" << summa << endl;
         cout << "Total digits" << i << endl;

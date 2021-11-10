@@ -13,16 +13,16 @@ int main()
     cin >> arr_size;
 
     int *arr = new int[arr_size];
-    cout << "Your array:" << endl;
-
+  
     // random created array
+    cout << "Your array:" << endl;
     for (int i = 0; i < arr_size; i++){
         arr[i] = rand()%10 + 1;
         cout << arr[i] << setw (4);
     }
     cout << endl;
 
-    // to do
+    // to do qu
     string answer;
     string del_new ("del");
     string add_new ("add");
@@ -41,9 +41,32 @@ int main()
         cin >> k;
         cout << "Choose the position where you whant to add " << k << " elements ";
         cin >> i;
-        // add loop
-        for (i==k; i < arr_size; i++){
+
+
+        int add_size = k;
+        int *add_arr = new int[add_size + k];
+
+        for (int i = 0; i < k; i++){
+            arr[i] = rand()%10 + 1;
+            cout << arr[i] << setw (4);
         }
+
+        // add loop
+        for (; i < arr_size - k; i++){
+            add_arr [i] = arr [i];
+        }
+
+        for (int i = add_size; i > k; i--)
+        {
+            add_arr [i] = arr [i - k];
+        }
+
+        // new array
+            cout << "Your new array:" << endl;
+            for (i = 0; i < arr_size + k; i++) {
+                cout << arr[i] << setw(4);
+            }
+            cout << endl;
     }
     // del k elements
     else if (answer == del_new){
@@ -53,29 +76,23 @@ int main()
         cout << "Choose the position where you whant to delete " << k << " elements ";
         cin >> i;
         // delet loop
-        for (; i < arr_size - 1; i++) {
-            arr[i] = arr[i + k];  
-        } 
-        for (; i > arr_size - 1; i--) {
-            arr[i] = arr[i - k];
+        if (i + k > arr_size) {
+            cout << "Error. You let the arry`s limit." << endl;
         }
-         
-        // new array
-        cout << "Your new array:" << endl;
-        for (i = 0; i < arr_size - 1; i++){
-         cout << arr[i] << setw (4);
-        
+        else {
+            for (; i < arr_size - k; i++) {
+                arr[i] = arr[i + k];
+            }
+            // new array
+            cout << "Your new array:" << endl;
+            for (i = 0; i < arr_size - k; i++) {
+                cout << arr[i] << setw(4);
+            }
+            cout << endl;
         }
-        cout << endl;
-    }
+    }   
 
-
-  
-
-
-     
-
-
+    return 0;
 }
 
 
