@@ -32,7 +32,7 @@ int main()
 
     int k; // num of elemnts that we add or del
     int i; // index of array
-    int pos_rep; // position repeat of index
+    int pos_rep = 0; // position repeat of index
 
     // add k elements
     if (answer == add_new){
@@ -53,11 +53,12 @@ int main()
         cout << "Choose the position where you whant to delete " << k << " elements ";
         cin >> i;
         // delet loop
-        for (pos_rep = 0; i < arr_size -1, pos_rep < k; i++, pos_rep++) {
-            arr[i] = arr[i + k]; 
-           
+        for (; i < arr_size - 1; i++) {
+            arr[i] = arr[i + k];  
         } 
-
+        for (; i > arr_size - 1; i--) {
+            arr[i] = arr[i - k];
+        }
          
         // new array
         cout << "Your new array:" << endl;
