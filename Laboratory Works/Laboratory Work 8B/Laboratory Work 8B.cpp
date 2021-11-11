@@ -8,7 +8,7 @@ int main()
 {
     
     int arr_size; 
-    cout << "Let`s crate an arry.";
+    cout << "Let`s crate an array.";
     cout << "How many element`s do you need? ";
     cin >> arr_size;
 
@@ -37,52 +37,75 @@ int main()
     // add k elements
     if (answer == add_new){
         // input 
+        int pos;
         cout << "How many elements do you whant to add? ";
         cin >> k;
         cout << "Choose the position where you whant to add " << k << " elements ";
-        cin >> i;
+        cin >> pos;
 
-
-        int add_size = k;
-        int *add_arr = new int[add_size + k];
-
-        for (int i = 0; i < k; i++){
-            arr[i] = rand()%10 + 1;
-            cout << arr[i] << setw (4);
+        if (pos < 1 || pos > arr_size) {
+            cout << "Error! You let the arry`s limit out." << endl;
         }
 
-        // add loop
-        for (; i < arr_size - k; i++){
-            add_arr [i] = arr [i];
-        }
+         // add loops
+        else {
+            int *add_arr = new int[arr_size + pos];
+       
+            for (i = 0; i < arr_size; i++){
+                add_arr[i] = arr[i];
+            }
 
-        for (int i = add_size; i > k; i--)
-        {
-            add_arr [i] = arr [i - k];
-        }
+            for (i = arr_size; i > pos; i--)
+            {
+                add_arr[i] = arr[i - k];
+            }
 
-        // new array
-            cout << "Your new array:" << endl;
-            for (i = 0; i < arr_size + k; i++) {
-                cout << arr[i] << setw(4);
+            int *add_extra = new int[k];
+           
+            cout << "New elements: ";
+            for (int j = 0; j < k; j++){
+                add_extra[j] = rand()%10 + 1;
+                cout << add_extra[j]<< setw(4);
             }
             cout << endl;
+             
+             for (int j = 0, i = pos; j < k; j++, i++)
+             {
+                add_arr[i] = add_extra[j];
+             }
+            
+            // new array
+            cout << "Your new array:" << endl;
+            for (i = 0; i < arr_size + k; i++) {
+                cout << add_arr[i] << setw(4);
+            }
+            cout << endl;
+        }
     }
     // del k elements
     else if (answer == del_new){
+
         // input 
-        cout << "How many elements do you whant to delete? ";
+        cout << "How many elements do you whant to delete(left to right)? ";
         cin >> k;
         cout << "Choose the position where you whant to delete " << k << " elements ";
         cin >> i;
+
         // delet loop
-        if (i + k > arr_size) {
-            cout << "Error. You let the arry`s limit." << endl;
+        if (i + k > arr_size || i < 0 || i > arr_size) {
+            cout << "Error! You let the array`s limit out." << endl;
         }
+
+        else if ( arr_size == k && i == 0) {
+            cout << "Array has been deleted!" << endl;
+        }
+        
         else {
+
             for (; i < arr_size - k; i++) {
                 arr[i] = arr[i + k];
             }
+
             // new array
             cout << "Your new array:" << endl;
             for (i = 0; i < arr_size - k; i++) {
