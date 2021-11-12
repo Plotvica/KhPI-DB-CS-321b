@@ -10,7 +10,7 @@
 #include "windows.h";
 using namespace std;
 
-int main()
+int main() 
 {   
     int const SIZE = 5;
     int smoking_space[SIZE];

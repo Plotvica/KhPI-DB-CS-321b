@@ -3,7 +3,7 @@
 #include <iomanip>
 using namespace std;
 
-int main()
+int main() 
 {
     
     int input_user_num;
@@ -30,7 +30,7 @@ int main()
         // finding digits
         int *arr = new int[arr_size];
         int i = 0;
-        for (i = 0; i < arr_size; i++){
+        for (i = 0; i < arr_size; i++) {
              arr[i] = (input_user_num % 10);
              input_user_num /=10;
              summa += arr[i]; 

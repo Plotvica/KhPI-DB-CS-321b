@@ -9,7 +9,7 @@ using namespace std;
 
 //#define SIZE, 200;
 
-int main()
+int main() 
 {
     const int SIZE = 100; // array`s size
     

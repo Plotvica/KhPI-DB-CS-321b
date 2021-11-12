@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-int main()
+int main() 
 {
     
     int arr_size; 
@@ -16,7 +16,7 @@ int main()
   
     // random created array
     cout << "Your array:" << endl;
-    for (int i = 0; i < arr_size; i++){
+    for (int i = 0; i < arr_size; i++) {
         arr[i] = rand()%10 + 1;
         cout << arr[i] << setw (4);
     }
@@ -35,7 +35,7 @@ int main()
     int pos_rep = 0; // position repeat of index
 
     // add k elements
-    if (answer == add_new){
+    if (answer == add_new) {
         // input 
         int pos;
         cout << "How many elements do you whant to add? ";
@@ -51,28 +51,27 @@ int main()
         else {
             int *add_arr = new int[arr_size + pos];
        
-            for (i = 0; i < arr_size; i++){
+            for (i = 0; i < arr_size; i++) {
                 add_arr[i] = arr[i];
-            }
-
-            for (i = arr_size; i > pos; i--)
-            {
-                add_arr[i] = arr[i - k];
             }
 
             int *add_extra = new int[k];
            
             cout << "New elements: ";
-            for (int j = 0; j < k; j++){
+            for (int j = 0; j < k; j++) {
                 add_extra[j] = rand()%10 + 1;
                 cout << add_extra[j]<< setw(4);
             }
             cout << endl;
              
-             for (int j = 0, i = pos; j < k; j++, i++)
-             {
+             for (int j = 0, i = pos; j < arr_size + k; j++, i++) {
                 add_arr[i] = add_extra[j];
              }
+            
+
+            for (i = arr_size + k; i > pos; i--) {
+                add_arr[i] = arr[i - k];
+            }
             
             // new array
             cout << "Your new array:" << endl;
@@ -83,7 +82,7 @@ int main()
         }
     }
     // del k elements
-    else if (answer == del_new){
+    else if (answer == del_new) {
 
         // input 
         cout << "How many elements do you whant to delete(left to right)? ";
