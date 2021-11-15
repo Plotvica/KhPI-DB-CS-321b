@@ -5,22 +5,60 @@
 #include <ctime>
 #include <iomanip>
 #include <iostream>
-
-
 #include "windows.h";
 using namespace std;
 
-int main() 
-{   
+int main()
+{
     int const SIZE = 5;
-    int smoking_space[SIZE];
-    int no_smoking_space[SIZE];
+    int smoking_space[SIZE] = { 1, 2, 3, 4, 5 };
+    int no_smoking_space[SIZE] = { 6, 7, 8, 9, 10 };
 
-    for (i=0; i < SIZE + SIZE; i++){
-        cout << "Does passanger smoke? <Y/N>" << endl;
-        sin >> >> endl;
-        if ()
+
+    cout << "Welcome " << endl;
+    cout << "We have two sitings areas \"smoking space\" and no \"smoking space\". You need to chose one." << endl;
+
+
+    string answer;
+    string smoke("yes");
+    string no_smoke("no");
+
+    int book_break = 0;
+
+    while ( book_break < SIZE*2) {
+
+        cout << "Are you smoking?<yes/no>  ";
+        cin >> answer;
+
+        if (cin.fail()){
+            cin.clear();
+            //cin.ignore(10000, '\n');
+            continue;
+        }
+
+        if (answer == smoke) {
+            int i;
+            for ( i = 0; i < SIZE; i++) {
+              //  cout << " Place " << smoking_space[i] << " is booked!" << endl;
+            }
+            cout << " Place " << smoking_space[i] << " is booked!" << endl;
+            book_break++;
+        }
+
+        if (answer == no_smoke) {
+            int j;
+            for (j = 0; j < SIZE; j++) {
+              // cout << " Place " << no_smoking_space[j] << " is booked!" << endl;
+            }
+            cout << " Place " << no_smoking_space[j] << " is booked!" << endl;
+            book_break++;
+        }
+   
     }
+
+
+
+
 
     cout << "Program has been ended" << endl;
   return 0;  
