@@ -15,7 +15,7 @@ int main()
     int no_smoking_space[SIZE] = { 6, 7, 8, 9, 10 };
 
 
-    cout << "Welcome " << endl;
+    cout << "Welcome to booking service UkraineAirLines. " << endl;
     cout << "We have two sitings areas \"smoking space\" and no \"smoking space\". You need to chose one." << endl;
 
 
@@ -24,7 +24,7 @@ int main()
     string no_smoke("no");
 
     int book_break = 0;
-
+    int i = 0, j = 0; // arrays` index 
     while ( book_break < SIZE*2) {
 
         cout << "Are you smoking?<yes/no>  ";
@@ -37,30 +37,32 @@ int main()
         }
 
         if (answer == smoke) {
-            int i;
-            for ( i = 0; i < SIZE; i++) {
-              //  cout << " Place " << smoking_space[i] << " is booked!" << endl;
+            if (i < 5) {
+                cout << " Place " << smoking_space[i] << " is booked in the smoking space!" << endl;
+                i++;
+                book_break++;
+            } 
+            else {
+                cout << "We are sorry. All sits int smoking area has been reserved." << endl;
             }
-            cout << " Place " << smoking_space[i] << " is booked!" << endl;
-            book_break++;
-        }
+        } 
 
-        if (answer == no_smoke) {
-            int j;
-            for (j = 0; j < SIZE; j++) {
-              // cout << " Place " << no_smoking_space[j] << " is booked!" << endl;
+        else if (answer == no_smoke) {
+            if ( j < 5) {
+                cout << " Place " << no_smoking_space[j] << " is booked! in the no smoking space" << endl;
+                j++;
+                book_break++;
             }
-            cout << " Place " << no_smoking_space[j] << " is booked!" << endl;
-            book_break++;
-        }
-   
+            else {
+                cout << "We are sorry. All sits in the no smoking area has been reserved." << endl;
+            }
+        }  
     }
 
-
-
-
-
-    cout << "Program has been ended" << endl;
+    cout << endl;
+    cout << " All sits has been reserved. Please wait or chek for another flight." << endl;
+    cout << " Fare you well!" << endl;
+    cout << endl << " Sold out." << endl;
   return 0;  
 }
 
