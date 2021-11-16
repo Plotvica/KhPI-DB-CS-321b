@@ -39,8 +39,18 @@ int main()
     string del_new("del");
     string add_new("add");
     while (true) {
+
         cout << "Do you whant to delete element`s or add some new? <del/add> ";
-        cin >> answer;
+        //cin >> answer;
+        while (true) {
+                cin >> answer;
+                if (answer != del_new and answer != add_new ) {
+                    cin.clear();
+                    cin.ignore(1000, '\n');
+                    cout << "Invalid input! Pease try againg. ";
+                }
+                else break;
+            }
 
         // add k elements
         if (answer == add_new) {
@@ -155,9 +165,9 @@ int main()
             }
         }
         cout << endl;
-        cout << "That`s new one:" << endl;
+        cout << "Your first array:" << endl;
         for (int i = 0; i < arr_size; i++) {
-            arr[i] = rand() % 10 + 1;
+            //arr[i] = rand() % 10 + 1; // create another one with other elements 
             cout << arr[i] << setw(4);
         }
         cout << endl;
