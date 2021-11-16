@@ -1,11 +1,8 @@
 ﻿#include <iostream>
 #include <math.h>
 #include <iomanip>
-#include <vector>
 #include <ctime>
-#include <iomanip>
-#include <iostream>
-#include "windows.h";
+#include <string>
 using namespace std;
 
 int main()
@@ -62,7 +59,7 @@ int main()
     cout << endl;
     cout << " All sits has been reserved. Please wait or chek for another flight." << endl;
     cout << " Fare you well!" << endl;
-    cout << endl << " Sold out." << endl;
+    cout << endl << " Sold out!" << endl;
   return 0;  
 }
 
