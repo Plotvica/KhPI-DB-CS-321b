@@ -78,7 +78,7 @@ int main()
                 else break;
             }
 
-            if (pos < 1 || pos > arr_size) {
+            if (pos < 1 or pos > arr_size) {
                 cout << "Error! You let the arry`s limit out." << endl;
             }
 
