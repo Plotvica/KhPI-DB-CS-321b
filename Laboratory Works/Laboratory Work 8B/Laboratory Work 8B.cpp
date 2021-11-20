@@ -8,7 +8,7 @@ int main()
 {
 
     int arr_size;
-    cout << "Let`s crate an array.";
+    cout << "Let`s create an array.";
     cout << "How many element`s do you need? ";
     while (true) {
        cin >> arr_size;
