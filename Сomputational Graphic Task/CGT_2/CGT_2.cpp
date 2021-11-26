@@ -10,6 +10,7 @@ using namespace std;
 void Shell(int arr[], int size)
 {
     int d = size / 2;
+    long double time1 = clock() / 1000.0;
 
     while (d > 0)
     {
@@ -28,6 +29,9 @@ void Shell(int arr[], int size)
         d = d / 2;
     }
 
+    long double time2 = clock() / 1000.0;
+
+    cout << "\nTime : " << time2 - time1 << endl;
 }
 
 
@@ -35,22 +39,18 @@ int main()
 {
     while (true) {
 
-        long double time1 = clock() / 10000.0;
-
         int size;
         cout << "TEST ";
         cin >> size;
 
-        int* arr = new int[size];
+        int *arr = new int[size];
 
-        for (int i = 0; i < size; i++)
+        for (int i = 0; i < size; i++){
             arr[i] = rand() % 10 + 1;
+        }
 
         Shell(arr, size);
 
-        long double time2 = clock() / 10000.0;
-
-        cout << "\nTime : " << time2 - time1 << endl;
     }
 
 
