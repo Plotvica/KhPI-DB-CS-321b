@@ -40,7 +40,7 @@ int main()
     string add_new("add");
     while (true) {
 
-        cout << "Do you whant to delete element`s or add some new? <del/add> ";
+        cout << "Do you want to delete element`s or add some new? <del/add> ";
         //cin >> answer;
         while (true) {
                 cin >> answer;
@@ -56,7 +56,7 @@ int main()
         if (answer == add_new) {
             // input 
             int pos;
-            cout << "How many elements do you whant to add? ";
+            cout << "How many elements do you want to add? ";
             while (true) {
                 cin >> k;
                 if (cin.fail()) {
@@ -67,7 +67,7 @@ int main()
                 else break;
             }
 
-            cout << "Choose the position where you whant to add " << k << " elements ";
+            cout << "Choose the position where you want to add " << k << " elements ";
             while (true) {
                 cin >> pos;
                 if (cin.fail()) {
@@ -119,7 +119,7 @@ int main()
         else if (answer == del_new) {
 
             // input 
-            cout << "How many elements do you whant to delete(left to right)? ";
+            cout << "How many elements do you want to delete(left to right)? ";
             while (true) {
                 cin >> k;
                 if (cin.fail()) {
@@ -130,7 +130,7 @@ int main()
                 else break;
             }
 
-            cout << "Choose the position where you whant to delete " << k << " elements ";
+            cout << "Choose the position where you want to delete " << k << " elements ";
             while (true) {
                 cin >> i;
                 if (cin.fail()) {

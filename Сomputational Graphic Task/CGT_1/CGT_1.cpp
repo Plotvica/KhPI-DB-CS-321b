@@ -3,7 +3,7 @@
 #include<cmath>
 #include<iomanip>
 #include <chrono>
-
+#define M 99999
 using namespace std;
 
 
@@ -34,7 +34,7 @@ int main()
     while (true) {
 
         cout.setf(ios::fixed);
-        cout.precision(15);
+        cout.precision(9); // seconds
 
         cout << "Shuttle sort" << endl;
         int size;
@@ -46,42 +46,45 @@ int main()
         cout << "Unsorted array:" << endl;
         for (int i = 0; i < size; i++) {
 
-           //arr[i] = rand() % 10 + 1;
-           arr[i] = i;
+           arr[i] = rand() % 10 + 1;
+           //arr[i] = i;
            cout << setw(3) << arr[i];
 
         }
 
+        double dur_arr[M];
         double aver_dur = 0;
-       
-        double dur_arr[1000];
+        for (int i = 0; i < M; i++)
+        {
+            
 
-        for (int i = 0; i < size; i++){
+            auto start = chrono::high_resolution_clock::now();
 
-            auto begin = std::chrono::high_resolution_clock::now();
- 
+           
             Shuttle(arr, size);
 
-            auto end = std::chrono::high_resolution_clock::now();
-            std::chrono::duration<double> duration = end - begin;
+            auto end = chrono::high_resolution_clock::now();
+            chrono::duration<double> duration = end - start;
 
-            dur_arr[i]= duration.count();
+            
+            dur_arr[i] = duration.count();
         }
 
-        for (int i = 0; i < size; i++){
-
-            if (i > 0) aver_dur += dur_arr[i];
-   
-        }
 
         cout << "\nSorted array:" << endl;
         for (int i = 0; i < size; i++) {
-
              cout << setw(3) << arr[i];
-
         } 
 
-        std::cout << "\nThe time:" << aver_dur / (size - 1) << "s\n" << endl;   
+        for (int i = 0; i < M; i++)
+        {
+            if (i > 0) aver_dur += dur_arr[i];
+        }
+
+
+        cout << "\nThe time:" << aver_dur / (M - 1) << "s\n";
+   
+  
     }
 
     //system("pause");
