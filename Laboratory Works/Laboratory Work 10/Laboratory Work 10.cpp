@@ -41,14 +41,14 @@ int matrix_style (int matrix[100][100], int row_col, int array[100],int total_su
           }cout << endl;
       } 
 
-    // back frist form array
-    cout << "New array:" << endl;
-     for (int i = 0; i < row_col; ++i) {
-         for (int j = 0; j < row_col; ++j) {
-             array[(i + j)] = matrix[i][j];
-             cout << setw(3) << array[(i + j)];
-         }
-     }
+    //// back frist form array
+    //cout << "New array:" << endl;
+    // for (int i = 0; i < row_col; ++i) {
+    //     for (int j = 0; j < row_col; ++j) {
+    //         array[(i + j)] = matrix[i][j];
+    //         cout << setw(3) << array[(i + j)];
+    //     }
+    // }
 
         
     cout << "\nTotal summa of avarage is:";
@@ -80,6 +80,15 @@ int main()
 
            int total_sum = 0;
            cout << matrix_style(matrix, row_col, array, total_sum) << endl;
+
+           // back frist form array
+           cout << "New array:" << endl;
+            for (int i = 0; i < row_col; ++i) {
+                for (int j = 0; j < row_col; ++j) {
+                    array[(i + j)] = matrix[i][j];
+                    cout << setw(3) << array[(i + j)];
+                }
+            }
 
        } else cout << "Error" << endl;
 

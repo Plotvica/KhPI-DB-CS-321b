@@ -3,11 +3,11 @@
 #include<cmath>
 #include<iomanip>
 #include <chrono>
-#define M 99999
+#define M 100
 using namespace std;
 
 
-void Shuttle(int arr[], int size)
+int Shuttle(int arr[], int size)
 {  
     int j, i, temp;
 
@@ -26,6 +26,7 @@ void Shuttle(int arr[], int size)
             else break;
         }
     }
+    return arr[size];
 }
 
 
@@ -52,37 +53,76 @@ int main()
 
         }
 
+        int prep_arr[1000];
+        for (int i = 0; i < size; ++i){
+            prep_arr[i] = arr[i];
+           // cout << setw(3) << arr[i];
+        }        
+
         double dur_arr[M];
         double aver_dur = 0;
         for (int i = 0; i < M; i++)
         {
             
-
             auto start = chrono::high_resolution_clock::now();
-
-           
+        
             Shuttle(arr, size);
 
             auto end = chrono::high_resolution_clock::now();
             chrono::duration<double> duration = end - start;
 
-            
             dur_arr[i] = duration.count();
+
+            cout << "\nSorted array:" << endl;
+            for (int i = 0; i < size; i++) {
+                cout << setw(3) << arr[i];
+            }
+            //back array
+            for (int i = 0; i < size; ++i){
+                arr[i] = prep_arr[i];
+                cout << endl << setw(3) << arr[i];
+            }
+
         }
 
+        //back array
+        for (int i = 0; i < size; ++i) {
+            arr[i] = prep_arr[i];
+        }
 
-        cout << "\nSorted array:" << endl;
+        /*cout << "\nSorted array:" << endl;
         for (int i = 0; i < size; i++) {
              cout << setw(3) << arr[i];
-        } 
+        }*/
 
-        for (int i = 0; i < M; i++)
-        {
-            if (i > 0) aver_dur += dur_arr[i];
+        for (int i = 0; i < M; i++){
+            cout << "\nDuration "<< i << " = " << dur_arr[i] << "s\n";
+            if(i > 0)aver_dur += dur_arr[i];
         }
 
+        // time sort
+        int j, i, temp;
+        for (i = 1; i < M; i++) {
 
-        cout << "\nThe time:" << aver_dur / (M - 1) << "s\n";
+            j = i - 1;
+
+            while (j >= 0) {
+
+                if (dur_arr[j] > dur_arr[j + 1]) {
+                    temp = dur_arr[j];
+                    dur_arr[j] = dur_arr[j + 1];
+                    dur_arr[j + 1] = temp;
+                    j--;
+                }
+                else break;
+            }
+        }
+
+        for (i = ((M/100)*20); i < M - ((M/100)*20)  ; ++i){
+            if(i > 0)aver_dur += dur_arr[i];         
+        } aver_dur = aver_dur / ((M/100)*60);
+
+        cout << "\nThe time:" << aver_dur << "s\n";
    
   
     }
