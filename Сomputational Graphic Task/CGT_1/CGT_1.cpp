@@ -29,13 +29,35 @@ int Shuttle(int arr[], int size)
     return arr[size];
 }
 
+int Shell(int arr[], int size)
+{
+    int d = size / 2;
+
+    while (d > 0)
+    {
+        for (int i = 0; i < size - d; i++)
+        {
+            int j = i;
+            while (j >= 0 && arr[j] > arr[j + d])
+            {
+                int temp = arr[j];
+                arr[j] = arr[j + d];
+                arr[j + d] = temp;
+                j--;
+            }
+        }
+        d = d / 2;
+    }
+    return arr[size];
+}
+
 
 int main()
 {
     while (true) {
 
         cout.setf(ios::fixed);
-        cout.precision(9); // seconds
+        cout.precision(7); // seconds
 
         cout << "Shuttle sort" << endl;
         int size;
@@ -67,6 +89,7 @@ int main()
             auto start = chrono::high_resolution_clock::now();
         
             Shuttle(arr, size);
+            //Shell(arr, size);
 
             auto end = chrono::high_resolution_clock::now();
             chrono::duration<double> duration = end - start;
@@ -77,10 +100,12 @@ int main()
             for (int i = 0; i < size; i++) {
                 cout << setw(3) << arr[i];
             }
+
             //back array
+            cout << endl;
             for (int i = 0; i < size; ++i){
                 arr[i] = prep_arr[i];
-                cout << endl << setw(3) << arr[i];
+                cout  << setw(3) << arr[i];
             }
 
         }
