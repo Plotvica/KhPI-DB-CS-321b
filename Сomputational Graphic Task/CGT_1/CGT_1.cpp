@@ -7,7 +7,7 @@
 using namespace std;
 
 
-int Shuttle(int arr[], int size)
+void Shuttle(int arr[], int size)
 {
     int j, i, temp;
 
@@ -26,10 +26,9 @@ int Shuttle(int arr[], int size)
             else break;
         }
     }
-    return arr[size];
 }
 
-int Shell(int arr[], int size)
+void Shell(int arr[], int size)
 {
     int d = size / 2;
 
@@ -48,7 +47,6 @@ int Shell(int arr[], int size)
         }
         d = d / 2;
     }
-    return arr[size];
 }
 
 
@@ -57,7 +55,7 @@ int main()
     while (true) {
 
         cout.setf(ios::fixed);
-        cout.precision(7); // seconds
+        cout.precision(9); // seconds
 
         cout << "Shuttle sort" << endl;
         int size;
@@ -75,6 +73,7 @@ int main()
 
         }
 
+        // preparation array to back values
         int prep_arr[100];
         for (int i = 0; i < size; ++i) {
             prep_arr[i] = arr[i];
@@ -96,34 +95,30 @@ int main()
 
             dur_arr[i] = duration.count();
 
-            cout << "\nSorted array:" << endl;
-            for (int i = 0; i < size; i++) {
-                cout << setw(3) << arr[i];
-            }
+            //// Sorted array test
+            //cout << "\nSorted array:" << endl;
+            //for (int i = 0; i < size; i++) {
+            //    cout << setw(3) << arr[i];
+            //}
 
-            //back array
-            cout << endl;
+            //back array test
+           // cout << "\nUnsorted array:"  << endl;
             for (int i = 0; i < size; ++i) {
                 arr[i] = prep_arr[i];
-                cout << setw(3) << arr[i];
+              //  cout << setw(3) << arr[i];
             }
 
         }
 
-        ////back array
-        //for (int i = 0; i < size; ++i) {
-        //    arr[i] = prep_arr[i];
-        //}
 
-        /*cout << "\nSorted array:" << endl;
+        cout << "\nSorted array:" << endl;
         for (int i = 0; i < size; i++) {
              cout << setw(3) << arr[i];
-        }*/
-
-        for (int i = 0; i < M; i++) {
-            cout << "\nDuration " << i << " = " << dur_arr[i] << "s\n";
-           // aver_dur += dur_arr[i];
         }
+        
+        /*for (int i = 0; i < M; i++) {
+            cout << "\nDuration " << i << " = " << dur_arr[i] << "s\n";
+        }*/
 
         // time sort
         double temp = 0;
@@ -137,18 +132,15 @@ int main()
             }
        }
 
-        for (int i = 0; i < M; i++) {
-            cout << "\nDuration test " << i << " = " << dur_arr[i] << "s\n";
-            // aver_dur += dur_arr[i];
-        }
+        /*for (int i = 0; i < M; i++) {
+           cout << "\nDuration sorted " << i << " = " << dur_arr[i] << "s\n";
+        }*/
 
         for (int i = ((M / 100) * 45); i < M - ((M / 100) * 45); ++i) {
             aver_dur += dur_arr[i];
         } aver_dur = aver_dur / ((M / 100) * 10);
 
         cout << "\nThe time:" << aver_dur << "s\n";
-
-
     }
 
     //system("pause");
