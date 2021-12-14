@@ -3,7 +3,7 @@
 #include<cmath>
 #include<iomanip>
 #include <chrono>
-#define M 100
+#define M 1000
 using namespace std;
 
 
@@ -57,7 +57,8 @@ int main()
         cout.setf(ios::fixed);
         cout.precision(9); // seconds
 
-        cout << "Shuttle sort" << endl;
+       // cout << "Shuttle sort" << endl;
+        cout << "Shell sort" << endl;
         int size;
         cout << "Input array size: ";
         cin >> size;
@@ -73,11 +74,19 @@ int main()
 
         }
 
+         //descending
+        /*for (int i = 0; i < size; i++) {
+
+            arr[i] = size - i - 1;
+            cout << setw(3) << arr[i];
+
+        }*/
+
         // preparation array to back values
         int prep_arr[100];
+        int arr_sorted[100];
         for (int i = 0; i < size; ++i) {
             prep_arr[i] = arr[i];
-            // cout << setw(3) << arr[i];
         }
 
         double dur_arr[M];
@@ -91,7 +100,7 @@ int main()
             //Shell(arr, size);
 
             auto end = chrono::high_resolution_clock::now();
-            chrono::duration<double> duration = end - start;
+            chrono::duration<float> duration = end - start;
 
             dur_arr[i] = duration.count();
 
@@ -101,22 +110,28 @@ int main()
             //    cout << setw(3) << arr[i];
             //}
 
+            // sort save 
+            for (int i = 0; i < size; ++i) {
+                arr_sorted[i] = arr[i] ;
+                //  cout << setw(3) << arr[i];
+            }
+
             //back array test
            // cout << "\nUnsorted array:"  << endl;
-            for (int i = 0; i < size; ++i) {
-                arr[i] = prep_arr[i];
-              //  cout << setw(3) << arr[i];
-            }
+                for (int i = 0; i < size; ++i) {
+                    arr[i] = prep_arr[i];
+                   //   cout << setw(3) << arr[i];
+                }
 
         }
 
 
         cout << "\nSorted array:" << endl;
         for (int i = 0; i < size; i++) {
-             cout << setw(3) << arr[i];
+             cout << setw(3) << arr_sorted[i];
         }
         
-        /*for (int i = 0; i < M; i++) {
+       /* for (int i = 0; i < M; i++) {
             cout << "\nDuration " << i << " = " << dur_arr[i] << "s\n";
         }*/
 
@@ -139,6 +154,8 @@ int main()
         for (int i = ((M / 100) * 45); i < M - ((M / 100) * 45); ++i) {
             aver_dur += dur_arr[i];
         } aver_dur = aver_dur / ((M / 100) * 10);
+    
+
 
         cout << "\nThe time:" << aver_dur << "s\n";
     }
