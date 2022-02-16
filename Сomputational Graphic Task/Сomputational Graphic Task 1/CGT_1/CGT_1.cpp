@@ -147,13 +147,13 @@ int main()
             }
        }
 
-        /*for (int i = 0; i < M; i++) {
+        for (int i = 0; i < M; i++) {
            cout << "\nDuration sorted " << i << " = " << dur_arr[i] << "s\n";
-        }*/
+        }
 
-        for (int i = ((M / 100) * 45); i < M - ((M / 100) * 45); ++i) {
+    /*    for (int i = ((M / 100) * 45); i < M - ((M / 100) * 45); ++i) {
             aver_dur += dur_arr[i];
-        } aver_dur = aver_dur / ((M / 100) * 10);
+        } aver_dur = aver_dur / ((M / 100) * 10);*/
     
 
 
