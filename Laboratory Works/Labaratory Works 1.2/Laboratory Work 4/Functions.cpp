@@ -4,8 +4,8 @@
 
 void print_array(int* pointer, int size) {
 	for (int i = 0; i < size; i++) {
-		pointer[i] = rand() % 10;
-		cout << pointer[i] << setw(4);
+		*(pointer + i) = rand() % 10;
+		cout << *(pointer + i) << setw(4);
 	} cout << endl;
 }
 
@@ -15,13 +15,13 @@ void task(int* basicArray, int size) {
 	int flag = 0;
 	int max = INT_MIN, min = INT_MAX;
 	for (int i = 0; i < size; i++) {
-		if (basicArray[i] > max)
-			max = basicArray[i];
+		if (*(basicArray+i) > max)
+			max = *(basicArray + i);
 	} cout << "MAX: " << max << endl;
 
 	for (int i = 0; i < size; i++) {
-		if (basicArray[i] < min)
-			min = basicArray[i];
+		if (*(basicArray + i) < min)
+			min = *(basicArray + i);
 	} cout << "MIN: " << min << endl;
 	if (min != 0) {
 		cout << "Ratio: " << double(max) / double(min) << endl;
@@ -35,10 +35,10 @@ void task(int* basicArray, int size) {
 
 
 	for (int i = 0; i < size; i++) {
-		if (basicArray[i] == max) {
+		if (*(basicArray + i) == max) {
 			flag++;
 		}
-		else if (basicArray[i] == min) {
+		else if (*(basicArray + i) == min) {
 			flag++;
 		}
 	}
@@ -51,9 +51,9 @@ void task(int* basicArray, int size) {
 	else {
 		cout << "New array:" << endl;
 		for (int i = 0, j = 0; i < size; i++) {
-			if (basicArray[i] > min && basicArray[i] < max) {
-				newArray[j] = basicArray[i];
-				cout << setw(4) << newArray[j];
+			if (*(basicArray + i) > min && *(basicArray + i) < max) {
+				*(newArray+j) = *(basicArray + i);
+				cout << setw(4) << *(newArray + j);
 				j++;
 			}
 		} cout << endl;
