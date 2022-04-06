@@ -9,7 +9,7 @@ using namespace std;
 
 
 #define PRINT_TYPE
-#define DEBUG
+//#define DEBUG
 
 struct Details {
 

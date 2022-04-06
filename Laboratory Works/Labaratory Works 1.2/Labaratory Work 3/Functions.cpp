@@ -4,7 +4,7 @@
 
 void print_array(int *pointer, const int size) {
 	for (int i = 0; i < size; i++) {
-		cout << pointer[i] << setw(4);
+		cout << *(pointer + i) << setw(4);
 	} cout << endl;
 }
 
@@ -13,7 +13,7 @@ void randomArray(int *pointer, const int size) {  // random set numbers for arra
 
 #ifndef DEBUG
 	for (int i = 0; i < size; i++) {
-		pointer[i] = rand() % 41 - 20;
+		*(pointer + i) = rand() % 41 - 20;
 
 	}
 #endif // !DEBUG
@@ -23,7 +23,7 @@ void randomArray(int *pointer, const int size) {  // random set numbers for arra
 #ifdef DEBUG
 	cout << "The main array is:";
 	for (int i = 0; i < size; i++) {
-		pointer[i] = rand() % 41 - 20;
+		*(pointer + i) = rand() % 41 - 20;
 		cout << setw(4) << pointer[i];
 	} cout << endl;
 #endif // DEBUG
@@ -38,8 +38,8 @@ int max_element(int *pointer, const int size) { // searching max
 
 	// max el
 	for (int i = 0; i < size; i++) {
-		if (pointer[i] > max) {
-			max = pointer[i];
+		if (*(pointer+i) > max) {
+			max = *(pointer + i);
 		}
 	}
 	return max;	
@@ -52,8 +52,8 @@ int min_element(int *pointer, const int size) { // search min
 
 	//min el
 	for (int i = 0; i < size; i++) {
-		if (pointer[i] < min) {
-			min = pointer[i];
+		if (*(pointer + i) < min) {
+			min = *(pointer + i);
 		}
 	}
 	return min;
@@ -89,9 +89,9 @@ float ratio( int max, int min) { //   ratio of max to min
 void new_array(int *pointer, int *newpointer, const int size, int max, int min) {
 	
 	for (int i = 0, j = 0; i < size; i++ ) {
-		if (pointer[i] > min && pointer[i] < max) {
-			newpointer[j] = pointer[i];
-			cout << newpointer[j] << setw(4);
+		if (*(pointer + i) > min && *(pointer + i) < max) {
+			*(newpointer + i) = *(pointer + i);
+			cout << *(newpointer+i) << setw(4);
 			j++;
 		}
 	} cout << endl;
