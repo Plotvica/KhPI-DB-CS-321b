@@ -58,9 +58,8 @@ void task(int* basicArray, int size) {
 			}
 		} cout << endl;
 	}
-
-
-
+	delete []newArray;
+	newArray = nullptr;
 
 
 }

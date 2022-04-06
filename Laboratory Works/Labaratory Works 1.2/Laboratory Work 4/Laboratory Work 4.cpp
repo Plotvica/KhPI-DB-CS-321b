@@ -12,6 +12,7 @@ int main()
 	int* basicArray = new int[size];
 
 
+
     int menu_button;
     while (true) {
 
@@ -31,7 +32,8 @@ int main()
             task(basicArray, size);
         }
         if (menu_button == 0) {
-            exit(0);
+            system("cls");
+            exit(NULL);
         }
 
     }
