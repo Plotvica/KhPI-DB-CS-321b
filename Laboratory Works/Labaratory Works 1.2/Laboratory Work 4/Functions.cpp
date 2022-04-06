@@ -45,13 +45,22 @@ void task(int* basicArray, int size) {
 
 	int* newArray = new int[size - flag];
 
+	if (size == 2) {
+		cout << "New array dose not exist" << endl;
+	}
+	else {
+		cout << "New array:" << endl;
+		for (int i = 0, j = 0; i < size; i++) {
+			if (basicArray[i] > min && basicArray[i] < max) {
+				newArray[j] = basicArray[i];
+				cout << setw(4) << newArray[j];
+				j++;
+			}
+		} cout << endl;
+	}
 
-	cout << "New array:" << endl;
-	for (int i = 0, j = 0; i < size; i++) {
-		if (basicArray[i] > min && basicArray[i] < max) {
-			newArray[j] = basicArray[i];
-			cout << setw(4) << newArray[j];
-			j++;
-		}
-	} cout << endl;
+
+
+
+
 }
