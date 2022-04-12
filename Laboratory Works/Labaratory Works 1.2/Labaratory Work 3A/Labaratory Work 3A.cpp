@@ -12,24 +12,12 @@ int main()
     int A[size];
 
     randomArray(A, size);
-   /* print_array(A, size);
-    a_task(A, size);
-    cout << endl;
-    b_task(A, size);
-    cout << endl;
-    v_task(A, size);
-    cout << endl;
-    g_task(A, size);
-    cout << endl;
-    d_task(A, size);
-    cout << endl;*/
-
- 
+    int e_summ = 0, e_flag = 0;
 
     int menu_button;
     while (true) {
 
-        cout << "1 – Choose the size of array, 2 - Print A array, 3 - Complite the task  0 - Exit ";
+        cout << "1 – A task, 2 - B task, 3 - V task, 4 – G task, 5 - D task, 6 - E task  0 - Exit ";
         cin >> menu_button;
 
         if (menu_button == 1) {
@@ -66,7 +54,9 @@ int main()
             system("cls");
             cout << "E task:" << endl;
             print_array(A, size);
-            d_task(A, size);
+            e_task(A, size, &e_summ, &e_flag);
+            e_summ = 0;
+            e_flag = 0;
         }
         if (menu_button == 0) {
             system("cls");

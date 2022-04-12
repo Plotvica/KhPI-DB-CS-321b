@@ -132,5 +132,18 @@ void d_task(int* pointer, int size) {       //д) через указатель на указатель.
 
 
 
+void e_task(int* pointer, int size, int* summ, int* flag) {       //е) оформить в виде функции с параметрами указателями.
 
-//е) оформить в виде функции с параметрами указателями.
+	
+
+	for (int i = 0; i < size; i++) {
+		if (*(pointer + i) < 0) {
+			(*flag)++;
+			*summ += *(pointer + i);
+		}
+	}
+	cout << "Summ -> " << *summ << endl;
+	cout << "Col -> " << *flag << endl;
+
+
+}
