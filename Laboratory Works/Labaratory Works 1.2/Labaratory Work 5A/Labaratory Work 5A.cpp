@@ -2,7 +2,7 @@
 
 int main()
 {
-	//srand(time(NULL));
+	srand(time(NULL));
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
@@ -21,9 +21,13 @@ int main()
 
 	int summa = 0;
 	int multiplication = 1;
-	Task( Two_D_Array,  Min_Array,  Max_Array, &summa, &multiplication, size);
+	int * back_task_Array = Task(Two_D_Array, Min_Array, Max_Array, &summa, &multiplication, size);
+	for (size_t i = 0; i < 2; i++)
+	{
+		cout << setw(4) << *(back_task_Array + i);
+	}
 
-	// free space
+	// free memory
 	delete[] Min_Array;
 	delete[] Max_Array;
 	for (size_t i = 0; i < size; i++) {

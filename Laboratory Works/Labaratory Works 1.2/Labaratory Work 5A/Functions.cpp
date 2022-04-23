@@ -16,36 +16,31 @@ void RandomArray(int** pointer, int size) {  // set a random
 
 void print_array(int* pointer, int size) {
     for (int i = 0; i < size; i++) {
-        *(pointer + i) = rand() % 10;
         cout << setw(5) << *(pointer + i) ;
     } cout << endl;
 }
 
-int Task(int **Two_D_Array, int* Min_Array, int* Max_Array, int* summa, int* multiplication, int size) {
-
-    int* back_task_Array = new int[2];
+int* Task(int **Two_D_Array, int* Min_Array, int* Max_Array, int* summa, int* multiplication, int size) {
 
     RandomArray(Two_D_Array, size);
 
 
-    // min find col
-
+    // min find col 
     for (size_t j = 0; j < size; j++) {
-        int min = INT_MAX;
+        *(Min_Array + j) = INT_MAX;
         for (size_t i = 0; i < size; i++) {
-            if (*(*(Two_D_Array + i) + j) <= min)
-             *(Min_Array + j) = *(*(Two_D_Array + i) + j);
-        }
+            if (*(*(Two_D_Array + i) + j) <= *(Min_Array + j))
+             *(Min_Array + j) = *(*(Two_D_Array + i)+ j);        
+        }  
     } print_array(Min_Array, size);
 
     // max find row
-
     for (size_t i = 0; i < size; i++) {
-        int max = INT_MIN;
+        *(Max_Array + i) = INT_MIN;
         for (size_t j = 0; j < size; j++) {
-            if (*(*(Two_D_Array + i) + j) >= max)
-                *(Max_Array + i) = *(*(Two_D_Array + i) + j);
-        }
+            if (*(*(Two_D_Array + i) + j) >= *(Max_Array + i))
+                *(Max_Array + i) = *(*(Two_D_Array + i) + j);       
+        }   
     } print_array(Max_Array, size);
 
 
@@ -64,5 +59,12 @@ int Task(int **Two_D_Array, int* Min_Array, int* Max_Array, int* summa, int* mul
     cout << *summa << endl;
     cout << *multiplication << endl;
 
-    return 0;
+
+
+    int* back_task_Array = new int[2];
+    *(back_task_Array + 0)  = *summa;
+    *(back_task_Array + 1) = *multiplication;
+    return back_task_Array;
+    delete[] back_task_Array;
+
 }
