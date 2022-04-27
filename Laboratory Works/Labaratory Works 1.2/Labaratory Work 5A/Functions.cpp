@@ -32,7 +32,7 @@ int* Task(int **Two_D_Array, int* Min_Array, int* Max_Array, int* summa, int* mu
             if (*(*(Two_D_Array + i) + j) <= *(Min_Array + j))
              *(Min_Array + j) = *(*(Two_D_Array + i)+ j);        
         }  
-    } print_array(Min_Array, size);
+    } // print_array(Min_Array, size);
 
     // max find row
     for (size_t i = 0; i < size; i++) {
@@ -41,7 +41,7 @@ int* Task(int **Two_D_Array, int* Min_Array, int* Max_Array, int* summa, int* mu
             if (*(*(Two_D_Array + i) + j) >= *(Max_Array + i))
                 *(Max_Array + i) = *(*(Two_D_Array + i) + j);       
         }   
-    } print_array(Max_Array, size);
+    } //print_array(Max_Array, size);
 
 
     for (size_t i = 0; i < size; i++) {
@@ -56,8 +56,8 @@ int* Task(int **Two_D_Array, int* Min_Array, int* Max_Array, int* summa, int* mu
 
         }
     }
-    cout << *summa << endl;
-    cout << *multiplication << endl;
+    cout << "Summa: " << * summa << endl;
+    cout << "Multiplication: " << *multiplication << endl;
 
 
 
@@ -65,6 +65,6 @@ int* Task(int **Two_D_Array, int* Min_Array, int* Max_Array, int* summa, int* mu
     *(back_task_Array + 0)  = *summa;
     *(back_task_Array + 1) = *multiplication;
     return back_task_Array;
-    delete[] back_task_Array;
+
 
 }

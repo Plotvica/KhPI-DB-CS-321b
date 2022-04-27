@@ -4,8 +4,11 @@ int main()
 {
    
     int size;
-    void (*ptr)(int*, int);
+    void (*ptr)(int*, int) = 0;
     int menu_button;
+ 
+
+
     while (true) {
 
         cout << "1 - Booble, 2 - Shell, 3 - Shuttle  0 - Exit ";
@@ -13,29 +16,26 @@ int main()
 
         if (menu_button == 1) {
             system("cls");
-            ptr = BOBOLE;
-            cout << "\t\t\t\tInput size"; cin >> size;
+            cout << "\t\t\t\tInput size: "; cin >> size;
             int* array_Booble = new int[size];
             cout << "Booble sort:";
-            ptr(array_Booble, size);
+            choose(1, array_Booble, size, ptr);
             delete[] array_Booble;
         }
         if (menu_button == 2) {
             system("cls");
-            ptr = Shell;
             cout << "Input size: "; cin >> size;
             int* array_Shell = new int[size];
             cout << "\t\t\t\tShell sort";
-            ptr(array_Shell, size);
+            choose(2, array_Shell, size, ptr);
             delete[] array_Shell;
         }
         if (menu_button == 3) {
             system("cls");
-            ptr = Shuttle;
             cout << "Input size: "; cin >> size;
-            int *array_Shuttle = new int[size];
+            int* array_Shuttle = new int[size];
             cout << "\t\t\t\tShuttle sort";
-            ptr(array_Shuttle, size);
+            choose(3, array_Shuttle, size, ptr);
             delete[] array_Shuttle;
         }
         if (menu_button == 0) {
