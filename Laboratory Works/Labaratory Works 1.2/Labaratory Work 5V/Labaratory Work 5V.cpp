@@ -16,29 +16,26 @@ int main()
 
         if (menu_button == 1) {
             system("cls");
-            ptr = BOBOLE;
-            cout << "\t\t\t\tInput size: "; cin >> size;
+           cout << "\t\t\t\tInput size: "; cin >> size;
             int* array_Booble = new int[size];
             cout << "Booble sort:";
-            sort(array_Booble, size, ptr);
+            sort(array_Booble, size, BOBOLE);
             delete[] array_Booble;
         }
         if (menu_button == 2) {
             system("cls");
-            ptr  = Shell;
             cout << "Input size: "; cin >> size;
             int* array_Shell = new int[size];
             cout << "\t\t\t\tShell sort";
-            sort(array_Shell, size, ptr);
+            sort(array_Shell, size, Shell);
             delete[] array_Shell;
         }
         if (menu_button == 3) {
             system("cls");
-            ptr = Shuttle;
             cout << "Input size: "; cin >> size;
             int* array_Shuttle = new int[size];
             cout << "\t\t\t\tShuttle sort";
-            sort(array_Shuttle, size, ptr);
+            sort(array_Shuttle, size, Shuttle);
             delete[] array_Shuttle;
         }
         if (menu_button == 0) {

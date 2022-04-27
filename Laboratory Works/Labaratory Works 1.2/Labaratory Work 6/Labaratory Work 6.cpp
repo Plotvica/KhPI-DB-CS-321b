@@ -33,6 +33,7 @@ int main()
             cout << "\t\t\t\t\tThis is the same word!" << endl;
         } cout << endl;
         
+
         delete[] string1;
         delete[] string2;
 
