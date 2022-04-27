@@ -17,7 +17,7 @@ void print_array(int* pointer, const int size) { // print function
 	for (int i = 0; i < size; i++) {
 		cout << *(pointer + i) << setw(4);
 	}
-	cout << endl << endl << endl;
+	cout << endl;
 
 }
 
@@ -82,29 +82,18 @@ void BOBOLE(int* array, int size) {
 }
 
 
-void choose(int button_click, int* array, int size, void(*ptr)(int*, int )) {
+void sort( int* array, int size, void(*ptr)(int*, int )) {
 
     rand(array, size);
     cout << "Before array: ";
     print_array(array, size);
     
     
-    //ptr(array, size);
-    if (button_click == 1) {
-        ptr = BOBOLE;
-        ptr(array, size);
-    }
-    if (button_click == 2) {
-        ptr = Shell;
-        ptr(array, size);
-    }
-    if (button_click == 3) {
-        ptr = Shuttle;
-        ptr(array, size);
-    }
+    ptr(array, size);
+  
 
 
     cout << "After array: ";
     print_array(array, size);
-
+    cout << endl;
 }

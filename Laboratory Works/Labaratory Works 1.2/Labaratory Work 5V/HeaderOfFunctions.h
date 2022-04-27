@@ -13,5 +13,5 @@ void print_array(int* pointer, const int size);
 void Shell(int* array, int size);
 void Shuttle(int* array, int size);
 void BOBOLE(int* array, int size);
-void choose(int button_click, int* array, int size, void(*ptr)(int*, int));
+void sort( int* array, int size, void(*ptr)(int*, int));
 

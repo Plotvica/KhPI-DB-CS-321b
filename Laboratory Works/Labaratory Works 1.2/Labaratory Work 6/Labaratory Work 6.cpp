@@ -28,14 +28,9 @@ int main()
         }
         else cout << "*The are not equal ech other by chars*" << endl;
 
-        char same[] = "\t\t\t\t\tThis is the same word!";
+
         if (char_equal(string1, string2) == true and length_equal(string1, string2) == true) {
-            for (size_t i = 0; i < strlen(same); i++) {
-                same[i] = toupper(same[i]);
-            }
-            for (size_t i = 0; i < strlen(same); i++) {
-                cout << same[i];
-            }
+            cout << "\t\t\t\t\tThis is the same word!" << endl;
         } cout << endl;
         
         delete[] string1;
