@@ -71,14 +71,14 @@ System::Void Hangman::HangmanGame::OnePlayerMod_Click(System::Object^ sender, Sy
 	 
 	OnButtonsKeyboard();
 
-	//code_word = LoadRandomWord();
+	LoadRandomWord(code_word);
 	toupperHangman(code_word);
 
 	
 	
 	display_guess = code_word;
 		
-	for (int i = 0; i < strlen(code_word); i++) {
+	for (int i = 0; i < str_len(code_word); i++) {
 		display_guess[i] = '#';
 	}
 
@@ -97,7 +97,7 @@ System::Void Hangman::HangmanGame::InputButton_Click(System::Object^ sender, Sys
 	toupperHangman(code_word);
 
 	display_guess = code_word;
-	for (int i = 0; i < strlen(code_word); i++) {
+	for (int i = 0; i < str_len(code_word); i++) {
 		display_guess[i] = '#';
 	}
 
@@ -353,6 +353,8 @@ System::Void Hangman::HangmanGame::Rules_Click(System::Object^ sender, System::E
 }
 // exit bar
 System::Void Hangman::HangmanGame::exitToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	delete[] code_word;
+	
 	Application::Exit();
+	delete[] code_word;
+
 }

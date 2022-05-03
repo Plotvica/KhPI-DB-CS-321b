@@ -2,7 +2,7 @@
 
 
 
-int str(char* string) {
+int str_len(char* string) {
 
     int i;
     for (i = 0; *(string + i) != '\0'; i++);
@@ -54,19 +54,39 @@ void DrawingDeadMan(int incorrect_answer) {
    
 }
 
-// Get lib word function
-char* LoadRandomWord()
-{
-    
-    char* word = new char[0];
-    FILE* data = fopen("words.txt", "r");
-    
-    fgets(word, 30, data);
-    puts(word);
+
+int countLine() {
+
+    FILE* data;
+    size_t countLine = 0u;
+
+    if ((data = fopen("words.txt", "r")) == NULL)
+        return 0u;
+    while (!feof(data)) {
+        fscanf(data, "%*[^\n]%*c");
+        countLine++;
+    }
 
     fclose(data);
 
-    return word;
+    return countLine;
+
+}
+
+
+// Get lib word function
+void LoadRandomWord(char* word)
+{   
+    FILE* data = fopen("words.txt", "r");
+
+    int randomLine = rand() % countLine() + 1;
+    
+    for (size_t i = 0; i < randomLine; i++) {
+        fscanf(data, "%s", word);
+    }
+
+    fclose(data);
+
 
 }
 
