@@ -13,8 +13,8 @@ void DrawingDeadMan(int incorrect_answer); // Draw function
 void LoadRandomWord(char* word); // Get lib word function
 void rules(); // rules menu
 void author(); // rights
-void toupperHangman(char* string);
-int str_len(char* string);
+void toupperHangman(char* string); // make char in upreg
+int str_len(char* string); // string length
 
 // Convert functions 
 std::string& Convert_String_to_string(String^ s, std::string& os); //convert System::string^ TO std::string

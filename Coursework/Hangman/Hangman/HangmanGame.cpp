@@ -16,7 +16,7 @@ void check(char response) {
 	
 	bool goodGuess = false;
 
-	for (int i = 0;i < strlen(code_word);i++) {
+	for (int i = 0;i < str_len(code_word);i++) {
 		if (response == code_word[i]) {
 			display_guess[i] = code_word[i];
 			opened++;
@@ -29,7 +29,7 @@ void check(char response) {
 		DrawingDeadMan(mistakes);
 	}
 
-	if (opened == strlen(code_word)) {
+	if (opened == str_len(code_word)) {
 		Won = true;
 		display_guess = code_word;
 		MessageBox::Show("You`ve Won ;)", "Rules");
@@ -353,8 +353,9 @@ System::Void Hangman::HangmanGame::Rules_Click(System::Object^ sender, System::E
 }
 // exit bar
 System::Void Hangman::HangmanGame::exitToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	
+
 	Application::Exit();
 	delete[] code_word;
+	code_word = nullptr;
 
 }
