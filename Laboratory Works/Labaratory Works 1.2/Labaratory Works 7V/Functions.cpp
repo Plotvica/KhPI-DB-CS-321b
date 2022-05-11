@@ -15,7 +15,7 @@ void task() {
 	} cout << endl;
 	fclose(data);
 
-	data = fopen("data.bin", "rb");
+	data = fopen("data.bin", "rb+");
 	int hash;
 	int summ = 0;
 
@@ -42,6 +42,7 @@ void task() {
 
 
 	cout << "Minimum is : ";
+	int nnn = 999;
 	int min = INT_MAX;
 	int save_position;
 	for (size_t i = 0, position = 0; i < size; i++, position++){
@@ -55,7 +56,15 @@ void task() {
 	}
 	cout << min << endl;
 	fseek(data, save_position * sizeof(int), NULL);
-	fwrite("999", sizeof(int), 1, data);
+	fwrite(&nnn, sizeof(int), 1, data);
+
+	cout << "111111 : ";
+	for (size_t i = 0, position = 0; i < size; i++, position++) {
+
+		fseek(data, position * sizeof(int), NULL);
+		fread(&hash, sizeof(int), 1, data);
+		cout << setw(4) << hash;
+	}
 
 
 	fclose(data);
