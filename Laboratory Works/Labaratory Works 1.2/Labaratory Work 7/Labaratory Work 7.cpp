@@ -5,62 +5,45 @@ int main() {
     srand(time(NULL));
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-
-    FILE* data;
-    
-    //data = fopen("data.txt", "r"); // open for reading
-    //data = fopen("data.txt", "r+"); // reading and add info
-    //data = fopen("data.txt", "w"); // open for writing or rewriting
-    //data = fopen("data.txt", "w+"); // open for writing and reading
-    //data = fopen("data.txt", "a"); // adding new elements
-
-
-    data = fopen("data.txt", "a+");
-
-    Details det[4];
-
-
+    Details det;
     //menu system 
     int menu_button;
     while (true) {
 
-#ifdef DEBUG
-        cout << __DATE__ << endl;
-        cout << __TIME__ << endl;
-#else 
-       // cout << __func__ << endl;
-       // cout << __FILE__ << endl;
-#endif
-
-        cout << " 1 - Ввод 2 – сортировка, 3 – печать, 0 - завершить роботу ";
+        cout << " 1 - enter at the beginning of the sheet, 2 - enter at the end of the sheet, 3 - random, 4 - print all, 5 – print last three, 6 - by number 0 - exit ";
         cin >> menu_button;
 
         if (menu_button == 1) {
-
-//#ifndef PRINT_TYPE 
-           in_put(det, data);
-//#else 
-            //random(det, data);
-//#endif
-        }
-        else if (menu_button == 2) {
-            sort(det, data);
-
-        }
-        else if (menu_button == 3) {
             system("cls");
-            print(det, data);
-
+            input_forvardlist(det);
         }
-        else if (menu_button == 0) {
-            fclose(data);
+        if (menu_button == 2) {
+            system("cls");
+            input_backlist(det);
+        }
+        if (menu_button == 3) {
+            system("cls");
+            random(det);
+        }
+        if (menu_button == 4) {
+            system("cls");
+            print_all(det);
+        }
+        if (menu_button == 5) {
+            system("cls");
+            print(det);
+        }
+        if (menu_button == 6) {
+            system("cls");
+            listNumberPrint(det);
+        }
+        if (menu_button == 0) {
+            delete [] det.name;
             exit(0);
         }
 
     }
 
-    delete[] det[1].name;
-    delete[] det[2].name;
-    delete[] det[3].name;
+    
     return 0;
 }

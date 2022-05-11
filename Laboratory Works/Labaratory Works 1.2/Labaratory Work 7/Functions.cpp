@@ -1,102 +1,191 @@
 #include "HeadsOfFunctions.h"
 
+//Details det;
 
 
-void in_put(Details det[], FILE* data) {
 
-    
-    
 
-    for (int i = 0; i < amount_of_elements; ++i) {
+int countLine(Details det) {
 
-        cout << i + 1 << ") Bведите: название, тип, количество, вес : ";
-        cin >> det[i].name >> det[i].type >> det[i].count >> det[i].weight;
-        fputs(det[i].name, data);
-        fprintf(data, "%c", '\t');
-        fprintf(data, "%c", det[i].type);
-        fprintf(data, "%c", '\t');
-        fprintf(data, "%d", det[i].count);
-        fprintf(data, "%c", '\t');
-        fprintf(data, "%lg", det[i].weight);
-        fprintf(data, "%c", '\n');
+    FILE* data;
+    size_t countLine = 0u;
 
+    if ((data = fopen("data.txt", "r")) == NULL)
+        return 0u;
+    while (!feof(data)) {
+        fscanf(data, "%s%s%hd%f", det.name, &det.type, &det.count, &det.weight);
+        countLine++;
     }
-    
+
+    fclose(data);
+
+    return countLine;
+
 }
 
-void random(Details det[], FILE* data) {
 
 
-    char letters[] = { 'З', 'П' ,'О' };
-    static char name_rand[3][20] = {"Фланец", "Переходник", "Станина"};
-    for (int i = 0; i < amount_of_elements; i++) {
-        /* if (i == 0) {
-             det[i].name = "Фланец";
-         }
-         else if (i == 1) {
-             det[i].name = "Переходник";
-         }
-         else if (i == 2) {
-             det[i].name = "Станина";
-         }*/
-        det[i].name = name_rand[rand() % 3];
-        fputs(det[i].name, data);
-        fprintf(data, "%c", '\t');
-        det[i].type = letters[rand() % 3];
-        fprintf(data, "%c", det[i].type);
-        fprintf(data, "%c", '\t');
-        det[i].count = rand() + 1;
-        fprintf(data, "%d", det[i].count);
-        fprintf(data, "%c", '\t');
-        det[i].weight = rand() + 10.0;
-        fprintf(data, "%lg", det[i].weight);
-        fprintf(data, "%c", '\n');
+void input_backlist(Details det) {
+
+    FILE* data = fopen("data.txt", "a+");
+
+    if (data == NULL) {
+        puts("System ERROR");
+        exit(0);
+    }
+    else {
+
+        for (int i = 0; i < amount_of_elements; ++i) {
+
+            cout << i + 1 << ") Enter: name, type, quantity, weight : ";
+            cin >> det.name >> det.type >> det.count >> det.weight;
+            fprintf(data, "%s\t%c\t%d\t%lg\n", det.name, det.type, det.count, det.weight);
+        }
+    }
+    
+    fclose(data);
+}
+
+
+
+void input_forvardlist(Details det) {
+
+
+    FILE* data = fopen("data.txt", "r+");
+
+    if (data == NULL) {
+        puts("System ERROR");
+        exit(0);
+    }
+    else {
+        for (int i = 0; i < amount_of_elements; ++i) {
+            cout << i + 1 << ") Enter: name, type, quantity, weight : ";
+            cin >> det.name >> det.type >> det.count >> det.weight;
+                fprintf(data, "%s\t%c\t%d\t%lg\n", det.name, det.type, det.count, det.weight);                
+        }
+    }
+
+    fclose(data);
+}
+
+void random(Details det) {
+
+    FILE* data = fopen("data.txt", "a");
+
+    int choose;
+    cout << "How many random stes you want to create? ->  ";
+    cin >> choose;
+
+
+    char letters[] = { 'O', 'P' ,'B' };
+    static char name_rand[3][20] = {"Flange", "Adapter", "Entablature"};
+    for (int i = 0; i < choose; i++) {
+
+        det.name = name_rand[rand() % 3];
+        det.type = letters[rand() % 3];
+        det.count = rand() + 1;
+        det.weight = rand() + 10.0;
+
+        fprintf(data, "%s\t%c\t%d\t%lg\n", det.name, det.type, det.count, det.weight);
+      
         
     }
+    fclose(data);
 }
 
-void sort(Details det[], FILE* data) {
 
 
-    if (det[0].count > det[1].count) {
-        swap(det[0], det[1]);
 
-    }
+void print(Details det) {
 
-    if (det[0].count > det[2].count) {
-        swap(det[0], det[2]);
-
-    }
-
-    if (det[1].count > det[2].count) {
-        swap(det[1], det[2]);
-
-    }
-
-}
-
-void print(Details det[], FILE* data) {
+    FILE* data = fopen("data.txt", "r");
 
     /* Вывод таблицы */
     cout << "---------------------------------------------------\n";
-    cout << "|           Ведомость деталей                      |\n";
+    cout << "|                 Parts sheet                      |\n";
     cout << "|--------------------------------------------------|\n";
-    cout << "|Наименование|  Тип  |Количество  |Вес 1 детали (г)|\n";
-
+    cout << "|Denomination|  Type |  Quantity  |Weight one of(g)|\n";
     cout << "|------------|-------|------------|----------------|\n";
     /* вывод строк фактических данных */
     for (int i = 0; i < amount_of_elements; i++) {
-        cout << "|";
-        cout.width(12);
-        cout << det[i].name;
-        printf("|   %c   |  %-9.1d | %14lg |\n",
-            det[i].type, det[i].count, det[i].weight);
+        fscanf(data, "%s%s%d%f", det.name,&det.type, &det.count, &det.weight);
+        printf("|%12s|   %c   |  %-9.1d | %14lg |\n",
+            det.name, det.type, det.count, det.weight);
+        
     }
     cout << "----------------------------------------------------\n";
-    cout << "|Примечание: принято такое кодирование типов:      | \n";
-    cout << "|О - оригинальная, П - покупная, З - заимствованная| \n";
+    cout << "|Note: the following type encoding is accepted:    | \n";
+    cout << "|   О - original, P - purchased, B - borrowed      | \n";
     cout << "---------------------------------------------------\n";
     cout << "\n\n\n\n";
 
-
+    fclose(data);
 }
+
+
+
+void print_all(Details det) {
+
+    FILE* data = fopen("data.txt", "r");
+
+    /* Вывод таблицы */
+    cout << "---------------------------------------------------\n";
+    cout << "|                 Parts sheet                      |\n";
+    cout << "|--------------------------------------------------|\n";
+    cout << "|Denomination|  Type |  Quantity  |Weight one of(g)|\n";
+    cout << "|------------|-------|------------|----------------|\n";
+    /* вывод строк фактических данных */
+    for (size_t i = 0; i < countLine(det) - 1; i++) {
+        fscanf(data, "%s%s%d%f", det.name, &det.type, &det.count, &det.weight);
+        printf("|%12s|   %c   |  %-9.1d | %14lg |\n",
+            det.name, det.type, det.count, det.weight);
+    }
+    
+    cout << "----------------------------------------------------\n";
+    cout << "|Note: the following type encoding is accepted:    | \n";
+    cout << "|   О - original, P - purchased, B - borrowed      | \n";
+    cout << "---------------------------------------------------\n";
+    cout << "\n\n\n\n";
+
+    fclose(data);
+}
+
+
+
+
+void listNumberPrint(Details det) {
+
+    FILE* data = fopen("data.txt", "r");
+
+    int choose;
+
+    cout << "What information by number do you whant to see?  ";
+    cin >> choose;
+    /* Вывод таблицы */
+    cout << "---------------------------------------------------\n";
+    cout << "|                 Parts sheet                      |\n";
+    cout << "|--------------------------------------------------|\n";
+    cout << "|Denomination|  Type |  Quantity  |Weight one of(g)|\n";
+    cout << "|------------|-------|------------|----------------|\n";
+    /* вывод строк фактических данных */
+   
+    for (size_t i = 0; i < choose; i++) {
+        fscanf(data, "%s%s%d%f", det.name, &det.type, &det.count, &det.weight);
+    }
+        
+        printf("|%12s|   %c   |  %-9.1d | %14lg |\n",
+            det.name, det.type, det.count, det.weight);
+    
+
+    cout << "----------------------------------------------------\n";
+    cout << "|Note: the following type encoding is accepted:    | \n";
+    cout << "|   О - original, P - purchased, B - borrowed      | \n";
+    cout << "---------------------------------------------------\n";
+    cout << "\n\n\n\n";
+
+    fclose(data);
+}
+
+
+
+

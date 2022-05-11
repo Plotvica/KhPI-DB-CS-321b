@@ -9,19 +9,21 @@ using namespace std;
 #define amount_of_elements 3
 
 
-#define PRINT_TYPE
-//#define DEBUG
+
 
 struct Details {
 
-    char *name = new char[20];
+    char* name = new char[15];
     char type;
     int count;
     float weight;
 
 };
 
-void in_put(Details det[], FILE* data);
-void random(Details det[], FILE* data);
-void sort(Details det[], FILE* data);
-void print(Details det[], FILE* data);
+
+void input_backlist(Details det);
+void random(Details det);
+void print(Details det);
+void print_all(Details det);
+void listNumberPrint(Details det);
+void input_forvardlist(Details det);
