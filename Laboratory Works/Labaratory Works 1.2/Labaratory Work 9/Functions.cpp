@@ -43,7 +43,7 @@ void CreateListRandom() { // randomize the information
 
 
 
-	current->name = name_rand[rand() % 3];
+	//current->name = name_rand[rand() % 3];
 	current->type = letters[rand() % 3];
 	current->count = rand() + 1;
 	current->weight = rand() + 10.0;
@@ -51,7 +51,7 @@ void CreateListRandom() { // randomize the information
 
 	for (size_t i = 0; i < choose - 1; ++i) {
 		current = new Node;
-		current->name = name_rand[rand() % 3];
+		//current->name = name_rand[rand() % 3];
 		current->type = letters[rand() % 3];
 		current->count = rand() + 1;
 		current->weight = rand() + 10.0;
@@ -522,7 +522,7 @@ void SaveInFile() { // writing in data.txt
 	}
 	while (current)
 	{
-		fprintf(data, "%s\t%c\t%d\t%lg\n", current->name, current->type, current->count, current->weight);
+		fprintf(data, "\n%s\t%c\t%d\t%lg", current->name, current->type, current->count, current->weight);
 		current = current->next;
 	}
 	cout << "File has been successfully saved." << endl;

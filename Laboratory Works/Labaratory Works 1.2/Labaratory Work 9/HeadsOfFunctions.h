@@ -10,7 +10,8 @@ struct Node
 {
 	Node* next;
 	Node* prev;
-	char* name = new char[15];
+	//char* name = new char[15];
+	char name[15];
 	char type;
 	int count;
 	float weight;

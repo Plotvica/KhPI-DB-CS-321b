@@ -12,7 +12,8 @@ using namespace std;
 struct Node
 {
 	Node* next;
-	char* name = new char[15];
+	//char* name = new char[15];
+	char name[15];
 	char type;
 	int count;
 	float weight;
