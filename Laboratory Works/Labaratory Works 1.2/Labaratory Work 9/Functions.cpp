@@ -8,7 +8,6 @@ void CreateListConsole() { // user`s input
 	Node* current, * previous;
 	head = previous = current = new Node;
 
-	short n = 0;
 	cout << 1 << ") Enter: name, type, quantity, weight \n --> ";
 	current->prev = nullptr;
 	cin >> current->name >> current->type >> current->count >> current->weight;
