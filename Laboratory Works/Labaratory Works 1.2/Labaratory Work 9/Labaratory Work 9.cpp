@@ -1,14 +1,12 @@
 ﻿#include "HeadsOfFunctions.h"
-#include "Windows.h"
-#include <iostream>
+
 Node * head = nullptr;
 Node* tail = nullptr;
 
 int main()
 {
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
-	srand(time(0));
+	
+	srand(time(NULL));
 	short a;
 	short b;
 	while (1) {
